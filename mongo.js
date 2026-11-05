@@ -11,7 +11,7 @@ const url = `mongodb+srv://najyramy111_db_user:${password}@cluster0.ytr8w3q.mong
 
 mongoose.set('strictQuery', false)
 
-mongoose.connect(url, {family: 4})
+mongoose.connect(url, { family: 4 })
 
 const noteSchema = new mongoose.Schema({
   content: String,
@@ -21,14 +21,15 @@ const noteSchema = new mongoose.Schema({
 
 const Note = mongoose.model('Note', noteSchema)
 
-const note = new Note({
-  content: 'Mongoose makes use of mongo easy',
-  important: true,
-})
+// const note = new Note({
+//   content: 'Mongoose makes use of mongo easy',
+//   important: true,
+// })
 
 // note.save().then(result => {
 //   console.log('note saved')
 // })
+
 Note.find({}).then(result => {
   result.forEach(note => {
     console.log(note)
