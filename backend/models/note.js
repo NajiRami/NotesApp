@@ -1,8 +1,9 @@
+const config = require('./utils/config')
 const mongoose = require('mongoose')
 
 mongoose.set('strictQuery', false)
 
-const url = process.env.MONGODB_URL
+const url = config.MONGODB_URL
 
 mongoose.connect(url, { family: 4 })
   .then( () => {
