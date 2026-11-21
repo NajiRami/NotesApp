@@ -34,7 +34,7 @@ const App = () => {
     const changedNote = { ...note, important: !note.important }
 
     if (notes.some(n => n.id === id)) {
-      setNotes(notes.map(note => (note.id !== id ? note : returnedNote)))
+      setNotes(notes.map(note => (note.id !== id ? note : changedNote)))
     }
 
     noteService
