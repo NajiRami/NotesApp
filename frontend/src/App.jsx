@@ -31,11 +31,11 @@ const App = () => {
 
   const toggleImportanceOf = id => {
     const note = notes.find(n => n.id === id)
+    if (!note) return
+    
     const changedNote = { ...note, important: !note.important }
-
-    if (notes.some(n => n.id === id)) {
-      setNotes(notes.map(note => (note.id !== id ? note : changedNote)))
-    }
+    
+    setNotes(notes.map(note => (note.id !== id ? note : changedNote)))
 
     noteService
       .update(id, changedNote)
