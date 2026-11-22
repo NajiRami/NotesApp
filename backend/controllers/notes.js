@@ -17,7 +17,7 @@ notesRouter.get('/:id', (request, response, next) => {
       }
     })
     .catch(error => next(error))
-}) 
+})
 
 notesRouter.post('/', (request, response, next) => {
   const body = request.body
@@ -31,7 +31,7 @@ notesRouter.post('/', (request, response, next) => {
     .then(savedNote => {
       response.json(savedNote)
     })
-    .catch(error => next(error)) 
+    .catch(error => next(error))
 })
 
 notesRouter.delete('/:id', (request, response, next) => {
@@ -43,7 +43,7 @@ notesRouter.delete('/:id', (request, response, next) => {
 })
 
 notesRouter.put('/:id', (request, response, next) => {
-  const {content, important} = request.body
+  const { content, important } = request.body
 
   Note.findById(request.params.id)
     .then(note => {
