@@ -30,7 +30,7 @@ notesRouter.post('/', async (request, response) => {
 })
 
 notesRouter.delete('/:id', (request, response, next) => {
-  Note.findById(request.params.id)
+  Note.findByIdAndDelete(request.params.id)
     .then(() => {
       response.status(204).end()
     })
